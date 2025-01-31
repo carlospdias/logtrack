@@ -30,14 +30,11 @@ public class IndexController {
 	@GetMapping
 	public Map<String,String> index() {
 		
-		
+	    Map<String,String>saudacao = new HashMap<>(3);
 		AuditLogDocument doc = createDocument();
-		System.out.println(doc);
-		
+		saudacao.put("log_inicial", doc.toString());
 		AuditLogDocument doc2 = auditTrackService.createDocumentLog(doc);
-		System.out.println(doc2);
-		Map<String,String>saudacao = new HashMap<>(2);
-		saudacao.put("ola", "Tudo bem?");
+		saudacao.put("log_final", doc2.toString());
 		saudacao.put("hoje", LocalDate.now().toString());
 		return saudacao;
 	}
