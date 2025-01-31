@@ -1,0 +1,1 @@
+package br.jus.tse.ged.config;
